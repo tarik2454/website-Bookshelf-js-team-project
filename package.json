@@ -2,10 +2,10 @@
   "name": "book_shelf",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://OAndrijchuk.github.io/book_shelf",
+  "homepage": "https://tarik2454.github.io/adaptive-website-Bookshelf-js-team-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /book_shelf/"
+    "build": "parcel build src/*.html --public-url /adaptive-website-Bookshelf-js-team-project/"
   },
   "repository": {
     "type": "git",
