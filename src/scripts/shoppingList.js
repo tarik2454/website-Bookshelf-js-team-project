@@ -63,11 +63,13 @@ const pagination = new Pagination(containerTui, options);
 
 const onShoppingClick = async event => {
   const booksInChart = JSON.parse(localStorage.getItem('bookList')) || [];
+  console.log(booksInChart);
 
   const booksArrCopy = [...booksInChart];
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const chunk = booksArrCopy.slice(startIndex, endIndex);
+  console.log(chunk);
 
   const bookMarkupsArr = [];
   for (let i = 0; i < chunk.length; i += 1) {
