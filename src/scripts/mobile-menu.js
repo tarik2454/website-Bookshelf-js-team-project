@@ -33,4 +33,3 @@ if (JSON.parse(localStorage.getItem('userAuth'))) {
 } else {
   document.querySelector('.user-info').classList.add('visually-hidden');
 }
-// style="overflow: hidden;"
