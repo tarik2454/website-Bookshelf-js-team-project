@@ -1,6 +1,7 @@
 .header {
   max-height: 64px;
 }
+
 .activ-page {
   background: $select-el-color;
   display: flex;
@@ -8,7 +9,6 @@
   justify-content: center;
   font-weight: 700;
   color: $dark-color;
-  margin-left: 16px;
 }
 
 .header-container {
@@ -30,30 +30,35 @@
   align-items: center;
   gap: 40px;
 }
+
 .navigation {
   display: flex;
   align-items: center;
   gap: 76px;
 }
+
 .logo {
   width: 109px;
   height: 28px;
-  // margin-right: 40px;
 }
+
 .logo-link {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .logo-text {
   fill: currentColor;
 }
+
 .menu {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 500;
 }
+
 .menu-link {
   display: flex;
   align-items: center;
@@ -65,18 +70,29 @@
   letter-spacing: -0.56px;
   border-radius: 36px;
   transition: color $anim-tranz-parameters;
+
   &:hover,
   &:focus {
     color: $accent-color;
   }
 }
+
 .shopping-list-icon {
   fill: currentColor;
 }
+
 .shopping-link {
   display: flex;
   gap: 4px;
+  position: relative;
 }
+
+.book-counter {
+  padding-top: 1.5px;
+  color: $accent-color;
+  font-size: 14px;
+}
+
 .sign-up-container {
   display: flex;
   gap: 24px;
@@ -91,8 +107,8 @@
 .sign-up-block {
   display: none;
 }
-.sign-up-btn{
-    border: 1.5px solid #111;
+.sign-up-btn {
+  border: 1.5px solid #111;
 }
 
 .header-menu {
@@ -100,12 +116,12 @@
 }
 
 @media screen and (min-width: 768px) {
-    .header {
-            max-height: 72px;
-        }
-    .header-container {
-        min-width: 768px;
-        }
+  .header {
+    max-height: 72px;
+  }
+  .header-container {
+    min-width: 768px;
+  }
 
   .sign-up-block {
     display: block;

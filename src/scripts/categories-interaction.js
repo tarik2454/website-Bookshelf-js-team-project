@@ -83,6 +83,10 @@ function searchCategoryText(categoryName) {
 }
 
 export function chooseCategory(searchQuery) {
+  if (searchQuery === undefined) {
+    return;
+  }
+
   searchCategoryText(searchQuery);
   getLoaderEl.style.display = 'flex';
 
@@ -104,6 +108,7 @@ export function chooseCategory(searchQuery) {
 
 function createCardMarkup(listMap, searchQuery) {
   const wordsArray = searchQuery.split(' ');
+
   const lastWord = wordsArray[wordsArray.length - 1];
 
   const coloredSpan = document.createElement('span');
@@ -116,12 +121,6 @@ function createCardMarkup(listMap, searchQuery) {
   <h1 class="books-section-title" id="section-title"">${highlightedQuery}</h1>
   <ul class="card-list">${listMap}</ul>
   </div>`;
-
-  // container.scrollIntoView({
-  //   block: 'start',
-  //   inline: 'nearest',
-  //   behavior: 'smooth',
-  // });
 }
 
 //! --------------------

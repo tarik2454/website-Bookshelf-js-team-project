@@ -10,10 +10,8 @@ import {
   createShopingList,
 } from './shoping-list-markup';
 import { FetchBook } from './api';
-import { Options } from 'smooth-scrollbar/options';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const buttonBag = document.querySelector('.shopping-list-book-btn');
 const mobileLinks = document.querySelectorAll('.mob-menu-link');
 mobileLinks.forEach(el => el.classList.remove('activ-page'));
 mobileLinks[1].classList.add('activ-page');
@@ -31,6 +29,8 @@ const itemsPerPage = 3;
 let currentPage = 1;
 
 const booksInChart = JSON.parse(localStorage.getItem('bookList')) || [];
+
+console.log(booksInChart.length);
 
 const options = {
   totalItems: booksInChart.length,
@@ -63,13 +63,11 @@ const pagination = new Pagination(containerTui, options);
 
 const onShoppingClick = async event => {
   const booksInChart = JSON.parse(localStorage.getItem('bookList')) || [];
-  console.log(booksInChart);
 
   const booksArrCopy = [...booksInChart];
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const chunk = booksArrCopy.slice(startIndex, endIndex);
-  console.log(chunk);
 
   const bookMarkupsArr = [];
   for (let i = 0; i < chunk.length; i += 1) {

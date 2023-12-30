@@ -2,18 +2,21 @@ import { onOpenModalBtnClick } from './modal';
 import { FetchBook } from './api';
 import { addToFierbase } from './registration-modal';
 import icons from '../images/sprite.svg';
+import { updateBookCounter } from './header';
 const fetchBook = new FetchBook();
 const modalWrapper = document.querySelector('.modal-wrapper');
 const contSection = document.querySelector('.cont-section');
-const backdrop = document.querySelector('.backdrop');
 contSection.addEventListener('click', onClickWrapper);
 
 async function onClickWrapper(event) {
   event.preventDefault();
+
   if (!event.target.dataset.id) {
     return;
   }
+
   onOpenModalBtnClick();
+
   const fetchedBook = await fetchBook.fetchElement(
     `/${event.target.dataset.id}`
   );
@@ -76,6 +79,16 @@ function markapBtn(id) {
     addBtn.addEventListener('click', addBookFromLokalStoreg);
   }
 
+  function addBookFromLokalStoreg(event) {
+    bookList.push(id);
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+    markapBtn(id);
+    event.currentTarget.removeEventListener('click', addBookFromLokalStoreg);
+    addToFierbase();
+
+    updateBookCounter();
+  }
+
   function removeBookFromLokalStoreg(event) {
     localStorage.setItem(
       'bookList',
@@ -84,13 +97,8 @@ function markapBtn(id) {
     markapBtn(id);
     event.currentTarget.removeEventListener('click', removeBookFromLokalStoreg);
     addToFierbase();
-  }
-  function addBookFromLokalStoreg(event) {
-    bookList.push(id);
-    localStorage.setItem('bookList', JSON.stringify(bookList));
-    markapBtn(id);
-    event.currentTarget.removeEventListener('click', addBookFromLokalStoreg);
-    addToFierbase();
+
+    updateBookCounter();
   }
 }
 
@@ -99,6 +107,7 @@ function addBtnMarkup(id) {
       add to shopping list
     </button>`;
 }
+
 function removeBtnMarkup(id) {
   return `<button class="modal-active-btn js-removeBtn" data-id="${id}">
       remove from the shopping list

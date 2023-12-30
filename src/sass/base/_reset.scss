@@ -48,18 +48,12 @@ ol {
   padding-left: 0;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 html:focus-within {
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
-  // text-rendering: optimizeSpeed;
   line-height: 1;
 }
 
@@ -68,10 +62,10 @@ ol {
   list-style: none;
 }
 
- a {
-   color: currentColor;
- }
- 
+a {
+  color: currentColor;
+}
+
 a[class] {
   text-decoration: none;
 }
